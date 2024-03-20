@@ -3,3 +3,19 @@ footer {
   padding: 20px;
   text-align: center;
 }
+
+.footerLink {
+  display: inline-flex;
+  color: #f2f2f2;
+  background-color: purple;
+  text-align: center;
+  padding: 1px 1px;
+  text-decoration: none;
+  font-size: 12px;
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border: groove;
+  cursor: pointer;
+  outline: 5px;
+}
