@@ -9,8 +9,8 @@ router.get('/', (req, res) => {
   // GET route code here
   pool
     .query(
-      `SELECT "location".title, "location".type, "location".lat, "location".long FROM "location" 
-    GROUP BY "location".title, "location".type, "location".lat, "location".long;`
+      `SELECT "location".id, "location".title, "location".type, "location".lat, "location".long FROM "location" 
+      GROUP BY "location".id, "location".title, "location".type, "location".lat, "location".long;`
     )
     .then((results) => res.send(results.rows))
     .catch((error) => {
