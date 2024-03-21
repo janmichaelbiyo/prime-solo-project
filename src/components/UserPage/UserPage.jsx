@@ -14,11 +14,16 @@ function UserPage() {
 
   const handleParksNPlayPage = (event) => {
     event.preventDefault();
-    console.log('this is the map click', event.target);
+
     dispatch({
       type: 'FETCH_PARK_N_PLAY',
       payload: event.target.id,
     });
+    dispatch({
+      type: 'FETCH_REVIEW',
+      payload: event.target.id,
+    });
+
     history.push('/parksnplay');
   };
 
@@ -43,9 +48,9 @@ function UserPage() {
         {location.map((location) => {
           return (
             <Marker key={location.id} position={[location.lat, location.long]}>
-              <Popup key={location.id}>
+              <Popup>
                 {location.title} <br />
-                <button onClick={handleParksNPlayPage}>
+                <button onClick={handleParksNPlayPage} id={location.id}>
                   {' '}
                   {location.type}{' '}
                 </button>

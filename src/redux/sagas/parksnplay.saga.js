@@ -1,7 +1,8 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* fetchParksNPlay() {
+function* fetchParksNPlay(action) {
+  console.log('i hope its an id', action.payload);
   try {
     const parksnplayResponse = yield axios.get(
       `/api/parksnplay/${action.payload}`
