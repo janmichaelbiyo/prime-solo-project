@@ -10,6 +10,7 @@ const passport = require('./strategies/user.strategy');
 // Route Includes
 const userRouter = require('./routes/user.router');
 const mapRouter = require('./routes/map.router');
+const parksnplayRouter = require('./routes/parksnplay.router');
 
 // Express Middleware
 app.use(express.json());
@@ -26,6 +27,7 @@ app.use(passport.session());
 // Routes
 app.use('/api/user', userRouter);
 app.use('/api/map', mapRouter);
+app.use('/api/parksnplay', parksnplayRouter);
 
 // Listen Server & Port
 app.listen(PORT, () => {

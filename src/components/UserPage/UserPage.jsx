@@ -15,6 +15,10 @@ function UserPage() {
   const handleParksNPlayPage = (event) => {
     event.preventDefault();
     console.log('this is the map click', event.target);
+    dispatch({
+      type: 'FETCH_PARK_N_PLAY',
+      payload: event.target.id,
+    });
     history.push('/parksnplay');
   };
 
