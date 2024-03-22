@@ -23,6 +23,10 @@ function UserPage() {
       type: 'FETCH_REVIEW',
       payload: event.target.id,
     });
+    dispatch({
+      type: 'FETCH_INCLUSIVE',
+      payload: event.target.id,
+    });
 
     history.push('/parksnplay');
   };

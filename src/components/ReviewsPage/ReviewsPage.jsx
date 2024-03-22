@@ -11,10 +11,28 @@ function ReviewsPage() {
     history.push('/parksnplay');
   };
 
+  const handleAddReview = (event) => {
+    event.preventDefault();
+    console.log('post route will be added later');
+  };
+
   return (
     <div>
-      <p> stand in for my reviews page</p>
-      <p>{review.review_analysis}</p>
+      {review.map((review) => {
+        return (
+          <div>
+            <p>{review.review_analysis}</p>
+          </div>
+        );
+      })}
+
+      <form>
+        <label> Review: </label> <br></br>
+        <textarea rows="30" cols="150"></textarea>
+        <br></br>
+        <button onSubmit={handleAddReview}>Add Review</button>
+      </form>
+
       <button onClick={handleParksNPlayPage}>Parks & Playground</button>
     </div>
   );

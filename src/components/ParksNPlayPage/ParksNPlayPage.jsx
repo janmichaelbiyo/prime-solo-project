@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 function ParksNPlayPage() {
   const parksnplay = useSelector((store) => store.parksnplay);
+  const inclusive = useSelector((store) => store.inclusive);
   const review = useSelector((store) => store.review);
   const dispatch = useDispatch();
   let history = useHistory();
@@ -24,25 +25,38 @@ function ParksNPlayPage() {
   };
 
   return (
-    <div>
-      <h1> {parksnplay.title} </h1>
+    <>
+      <h1>{parksnplay.title}</h1>
 
-      <h2>Address</h2>
+      <h3> Address </h3>
       <p>{parksnplay.address}</p>
 
-      <h3>Info</h3>
+      <h3> Info </h3>
+
       <p> {parksnplay.info}</p>
 
-      <h4>Inclusive Features</h4>
-      <p>{parksnplay.string_agg}</p>
+      <h3>Inclusive Features</h3>
+      {inclusive.map((inclusive) => {
+        return (
+          <div>
+            <p>{inclusive.feature}</p>
+          </div>
+        );
+      })}
 
-      <h5>Review</h5>
-      <p>{review.review_analysis}</p>
+      <h3>Reviews</h3>
+      {review.map((review) => {
+        return (
+          <div>
+            <p>{review.review_analysis}</p>
+          </div>
+        );
+      })}
 
       <button onClick={handleInclusiveFeaturePage}>Inclusive Features</button>
       <button onClick={handleMapPage}>Map</button>
       <button onClick={handleReviewsPage}>Reviews</button>
-    </div>
+    </>
   );
 }
 

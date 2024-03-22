@@ -4,6 +4,7 @@ import user from './user.reducer';
 import location from './location.reducer';
 import parksnplay from './parksnplay.reducer';
 import review from './review.reducer';
+import inclusive from './inclusive.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   location, //will have all the information of the location for the map
   parksnplay, //will have the specific info from each parks and playground
   review, // will have review info
+  inclusive, //will have inclusive info
 });
 
 export default rootReducer;
