@@ -9,7 +9,7 @@ function* fetchParksNPlay(action) {
     );
     yield put({
       type: 'SET_PARKS_N_PLAY',
-      payload: parksnplayResponse.data,
+      payload: { ...parksnplayResponse.data, id: action.payload },
     });
   } catch (error) {
     console.log('Danger issues with the parks and play info', error);

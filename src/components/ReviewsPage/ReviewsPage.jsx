@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 function ReviewsPage() {
   const history = useHistory();
   const review = useSelector((store) => store.review);
+  const parksnplay = useSelector((store) => store.parksnplay);
+  const locationID = parksnplay.id;
 
   const handleParksNPlayPage = (event) => {
     event.preventDefault();
@@ -13,7 +15,7 @@ function ReviewsPage() {
 
   const handleAddReview = (event) => {
     event.preventDefault();
-    console.log('post route will be added later');
+    console.log('post route will be added later', locationID, 'location id');
   };
 
   return (
@@ -30,7 +32,7 @@ function ReviewsPage() {
         <label> Review: </label> <br></br>
         <textarea rows="30" cols="150"></textarea>
         <br></br>
-        <button>Add Review</button>
+        <input type="submit" value="Add Review" />
       </form>
 
       <button onClick={handleParksNPlayPage}>Parks & Playground</button>

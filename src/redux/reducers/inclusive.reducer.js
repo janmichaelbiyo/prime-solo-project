@@ -1,4 +1,4 @@
-const inclusiveReducer = (state = {}, action) => {
+const inclusiveReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_INCLUSIVE':
       return action.payload;

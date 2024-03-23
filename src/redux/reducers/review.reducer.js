@@ -1,4 +1,4 @@
-const reviewReducer = (state = {}, action) => {
+const reviewReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_REVIEW':
       return action.payload;

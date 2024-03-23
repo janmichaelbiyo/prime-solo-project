@@ -1,6 +1,9 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 /**
  * GET route
@@ -55,13 +58,22 @@ router.get('/review/:id', (req, res) => {
     });
 });
 
-router.post('/review', (req, res) => {
+router.post('/', (req, res) => {
   console.log(req.body);
   //this is the post call for my CRUD
   const insertReviewQuery = `
   INSERT INTO "review" ("location_id", "review_analysis")
 VALUES ($1, $2) `;
-  const insertReviewValues = [, req.body.review_analysis];
+  const insertReviewValues = [req.body.location_id, req.body.review_analysis];
+  pool
+    .query(insertReviewQuery, insertReviewValues)
+    .then((results) => {
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      console.log('this is an error in the post route', error);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;
