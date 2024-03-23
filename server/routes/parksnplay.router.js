@@ -40,12 +40,11 @@ router.get('/inclusive/:id', (req, res) => {
 
 router.get('/review/:id', (req, res) => {
   // GET route code here
-  const reviewQuery = `SELECT "review".review_analysis FROM "location"
+  const reviewQuery = `SELECT "review".review_analysis, "location".id FROM "location"
   JOIN "review" ON "review".location_id = "location".id
   WHERE "location".id = $1
-  GROUP BY "review".review_analysis, "review".id
   ORDER BY "review".id DESC 
-  LIMIT 3;`;
+  LIMIT 3`;
 
   pool
     .query(reviewQuery, [req.params.id])
@@ -54,6 +53,15 @@ router.get('/review/:id', (req, res) => {
       console.log('problems with the review!!!!!', error);
       res.sendStatus(500);
     });
+});
+
+router.post('/review', (req, res) => {
+  console.log(req.body);
+  //this is the post call for my CRUD
+  const insertReviewQuery = `
+  INSERT INTO "review" ("location_id", "review_analysis")
+VALUES ($1, $2) `;
+  const insertReviewValues = [, req.body.review_analysis];
 });
 
 module.exports = router;

@@ -26,11 +26,11 @@ function ReviewsPage() {
         );
       })}
 
-      <form>
+      <form onSubmit={handleAddReview}>
         <label> Review: </label> <br></br>
         <textarea rows="30" cols="150"></textarea>
         <br></br>
-        <button onSubmit={handleAddReview}>Add Review</button>
+        <button>Add Review</button>
       </form>
 
       <button onClick={handleParksNPlayPage}>Parks & Playground</button>
