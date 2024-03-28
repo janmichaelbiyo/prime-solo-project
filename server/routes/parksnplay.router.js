@@ -26,17 +26,38 @@ router.get('/:id', (req, res) => {
 
 router.get('/inclusive/:id', (req, res) => {
   // GET route code here
-  const inclusiveQuery = `SELECT "inclusive_features".feature FROM "location"
+  const inclusiveQuery = `SELECT  "location_inclusive_features".id, "inclusive_features".feature, "location_inclusive_features".status, "location_inclusive_features".inclusive_features_id, "location_inclusive_features".location_id  FROM "location"
   JOIN "location_inclusive_features" ON "location_inclusive_features".location_id = "location".id
   JOIN "inclusive_features" ON "inclusive_features".id = "location_inclusive_features".inclusive_features_id 
   WHERE "location".id =$1
-  GROUP BY "inclusive_features".feature;`;
+  GROUP BY  "location_inclusive_features".id, "inclusive_features".feature, "location_inclusive_features".status, "location_inclusive_features".inclusive_features_id, "location_inclusive_features".location_id ;`;
 
   pool
     .query(inclusiveQuery, [req.params.id])
     .then((results) => res.send(results.rows))
     .catch((error) => {
       console.log('problems with the inclusive stuff info!!!!!', error);
+      res.sendStatus(500);
+    });
+});
+
+router.get('/inclusive/again/:id', (req, res) => {
+  // GET route code here
+  const inclusiveQuery = `SELECT "inclusive_features".feature, "location_inclusive_features".status, "location_inclusive_features".inclusive_features_id, "location_inclusive_features".location_id FROM "location"
+  JOIN "location_inclusive_features" ON "location_inclusive_features".location_id = "location".id
+  JOIN "inclusive_features" ON "inclusive_features".id = "location_inclusive_features".inclusive_features_id 
+  WHERE "location_inclusive_features".location_id =$1
+  GROUP BY "inclusive_features".feature, "location_inclusive_features".status, "location_inclusive_features".inclusive_features_id, "location_inclusive_features".location_id ;
+  `;
+
+  pool
+    .query(inclusiveQuery, [req.params.location_id])
+    .then((results) => res.send(results.rows))
+    .catch((error) => {
+      console.log(
+        'problems with the inclusive stuff redo again info!!!!!',
+        error
+      );
       res.sendStatus(500);
     });
 });
@@ -58,7 +79,7 @@ router.get('/review/:id', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/review', (req, res) => {
   console.log(req.body);
   //this is the post call for my CRUD
   const insertReviewQuery = `
@@ -72,6 +93,39 @@ VALUES ($1, $2) `;
     })
     .catch((error) => {
       console.log('this is an error in the post route', error);
+      res.sendStatus(500);
+    });
+});
+
+router.put('/inclusive/:id', (req, res) => {
+  const inclusiveQuery = `UPDATE "location_inclusive_features"
+  SET "status" = NOT "status"
+  WHERE "location_id" = $1 AND "inclusive_features_id" =$2;`;
+  const insertinclusiveValues = [req.body.location_id, req.params.id];
+  pool
+    .query(inclusiveQuery, insertinclusiveValues)
+    .then((response) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+});
+
+router.delete('/inclusive/:id', (req, res) => {
+  console.log('this is the delete that i want', req.params);
+
+  const inclusiveDeleteQuery = `DELETE FROM "location_inclusive_features" 
+  WHERE "id" = $1;`;
+
+  pool
+    .query(inclusiveDeleteQuery, [req.params.id])
+    .then((response) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.error(err);
       res.sendStatus(500);
     });
 });

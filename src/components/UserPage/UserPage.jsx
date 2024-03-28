@@ -28,7 +28,7 @@ function UserPage() {
       payload: event.target.id,
     });
 
-    history.push('/parksnplay');
+    history.push({ pathname: '/parksnplay', state: event.target.id });
   };
 
   useEffect(() => {

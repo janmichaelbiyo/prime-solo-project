@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function* fetchInclusive(action) {
   try {
+    console.log('fetching the inclusive payload', action.payload);
     const inclusiveResponse = yield axios.get(
       `/api/parksnplay/inclusive/${action.payload}`
     );

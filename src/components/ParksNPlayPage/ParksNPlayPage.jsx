@@ -1,13 +1,16 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 function ParksNPlayPage() {
   const parksnplay = useSelector((store) => store.parksnplay);
   const inclusive = useSelector((store) => store.inclusive);
   const review = useSelector((store) => store.review);
   const dispatch = useDispatch();
+  let location = useLocation();
   let history = useHistory();
+
+  const locationId = location.state;
 
   const handleMapPage = (event) => {
     event.preventDefault();
@@ -21,7 +24,7 @@ function ParksNPlayPage() {
 
   const handleInclusiveFeaturePage = (event) => {
     event.preventDefault();
-    history.push('/inclusive');
+    history.push({ pathname: '/inclusive', state: locationId });
   };
 
   return (
