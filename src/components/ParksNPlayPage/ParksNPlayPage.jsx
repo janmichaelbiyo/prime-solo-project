@@ -7,7 +7,6 @@ function ParksNPlayPage() {
   const inclusive = useSelector((store) => store.inclusive);
   const review = useSelector((store) => store.review);
   const dispatch = useDispatch();
-  let location = useLocation();
   let history = useHistory();
 
   const locationId = location.state;
@@ -24,7 +23,7 @@ function ParksNPlayPage() {
 
   const handleInclusiveFeaturePage = (event) => {
     event.preventDefault();
-    history.push({ pathname: '/inclusive', state: locationId });
+    history.push('/inclusive');
   };
 
   return (
@@ -42,7 +41,10 @@ function ParksNPlayPage() {
       {inclusive.map((inclusive) => {
         return (
           <div>
-            <p>{inclusive.feature}</p>
+            <p>
+              {inclusive.feature} <bk></bk>
+              {inclusive.status ? 'Available' : 'Unavailable'}
+            </p>
           </div>
         );
       })}

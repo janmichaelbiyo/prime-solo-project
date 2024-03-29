@@ -27,8 +27,12 @@ function UserPage() {
       type: 'FETCH_INCLUSIVE',
       payload: event.target.id,
     });
+    dispatch({
+      type: 'SET_PARKS_N_PLAY_ID',
+      payload: event.target.id,
+    });
 
-    history.push({ pathname: '/parksnplay', state: event.target.id });
+    history.push('/parksnplay');
   };
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import location from './location.reducer';
 import parksnplay from './parksnplay.reducer';
 import review from './review.reducer';
 import inclusive from './inclusive.reducer';
-import inclusiveagain from './inclusiveagain.reducer';
+import parksnplayid from './parksnplayid.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
   parksnplay, //will have the specific info from each parks and playground
   review, // will have review info
   inclusive, //will have inclusive info
-  inclusiveagain, // trying something with another get of inclusive info
+  parksnplayid, // a reducer that holds the parksnplayid from the click
 });
 
 export default rootReducer;

@@ -7,7 +7,6 @@ import parksnplaySaga from './parksnplay.saga';
 import reviewSaga from './review.saga';
 import inclusiveSaga from './inclusive.saga';
 import deleteinclusiveSaga from './deleteinclusive.saga';
-import inclusiveagainSaga from './inclusiveagain.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -26,6 +25,5 @@ export default function* rootSaga() {
     reviewSaga(),
     inclusiveSaga(),
     deleteinclusiveSaga(),
-    inclusiveagainSaga(),
   ]);
 }

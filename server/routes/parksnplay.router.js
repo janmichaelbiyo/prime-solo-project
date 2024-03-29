@@ -41,27 +41,6 @@ router.get('/inclusive/:id', (req, res) => {
     });
 });
 
-router.get('/inclusive/again/:id', (req, res) => {
-  // GET route code here
-  const inclusiveQuery = `SELECT "inclusive_features".feature, "location_inclusive_features".status, "location_inclusive_features".inclusive_features_id, "location_inclusive_features".location_id FROM "location"
-  JOIN "location_inclusive_features" ON "location_inclusive_features".location_id = "location".id
-  JOIN "inclusive_features" ON "inclusive_features".id = "location_inclusive_features".inclusive_features_id 
-  WHERE "location_inclusive_features".location_id =$1
-  GROUP BY "inclusive_features".feature, "location_inclusive_features".status, "location_inclusive_features".inclusive_features_id, "location_inclusive_features".location_id ;
-  `;
-
-  pool
-    .query(inclusiveQuery, [req.params.location_id])
-    .then((results) => res.send(results.rows))
-    .catch((error) => {
-      console.log(
-        'problems with the inclusive stuff redo again info!!!!!',
-        error
-      );
-      res.sendStatus(500);
-    });
-});
-
 router.get('/review/:id', (req, res) => {
   // GET route code here
   const reviewQuery = `SELECT "review".review_analysis, "location".id FROM "location"
