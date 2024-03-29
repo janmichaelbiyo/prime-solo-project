@@ -8,8 +8,6 @@ function InclusiveFeaturePage() {
   const inclusive = useSelector((store) => store.inclusive);
   const parksnplayid = useSelector((store) => store.parksnplayid);
 
-  const locationId = location.state;
-
   const handleParksNPlayPage = (event) => {
     event.preventDefault();
     history.push('/parksnplay');
@@ -18,6 +16,10 @@ function InclusiveFeaturePage() {
   const handleInsclusiveFeature = (event) => {
     event.preventDefault();
     console.log('i want to toggle if its available or not');
+    dispatch({
+      type: 'CHANGE_INCLUSIVE',
+      payload: { targetId: event.target.id, locationId: parksnplayid },
+    });
   };
 
   const handleDeleteInclusive = (event) => {
@@ -36,7 +38,9 @@ function InclusiveFeaturePage() {
           <div key={inclusive.id}>
             <p>{inclusive.feature}</p>
             <p>{inclusive.status ? 'Available' : 'Unavailable'}</p>
-            <button onClick={handleInsclusiveFeature}>Available or Not</button>
+            <button onClick={handleInsclusiveFeature} id={inclusive.id}>
+              Available or Not
+            </button>
             <button onClick={handleDeleteInclusive} id={inclusive.id}>
               Delete
             </button>

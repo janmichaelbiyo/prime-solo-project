@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function ReviewsPage() {
   const history = useHistory();
+  const dispatch = useDispatch();
   const review = useSelector((store) => store.review);
-  const parksnplay = useSelector((store) => store.parksnplay);
-  const locationID = parksnplay.id;
+  const parksnplayid = useSelector((store) => store.parksnplayid);
+  const [newReview, setNewReview] = useState({
+    review_analysis: '',
+    location_id: '',
+  });
+
+  let id = review.id;
 
   const handleParksNPlayPage = (event) => {
     event.preventDefault();
@@ -15,29 +21,42 @@ function ReviewsPage() {
 
   const handleAddReview = (event) => {
     event.preventDefault();
-    console.log('post route will be added later', locationID, 'location id');
+    dispatch({
+      type: 'POST_REVIEW',
+      payload: {
+        newReview,
+        locationId: parksnplayid,
+      },
+    });
+    setNewReview('');
   };
 
   return (
     <div>
       {review.map((review) => {
-        return (
-          <div>
-            <p>{review.review_analysis}</p>
-          </div>
-        );
+        return <p>{review.review_analysis}</p>;
       })}
 
-      <form onSubmit={handleAddReview}>
+      <form>
         <label> Review: </label> <br></br>
-        <textarea rows="30" cols="150"></textarea>
-        <br></br>
-        <input type="submit" value="Add Review" />
+        <textarea
+          rows="30"
+          cols="150"
+          value={newReview.review_analysis}
+          onChange={(event) =>
+            setNewReview({
+              ...newReview,
+              review_analysis: event.target.value,
+              location_id: parksnplayid,
+            })
+          }
+        ></textarea>
       </form>
+
+      <button onClick={handleAddReview}>Submit</button>
 
       <button onClick={handleParksNPlayPage}>Parks & Playground</button>
     </div>
   );
 }
-
 export default ReviewsPage;

@@ -43,11 +43,7 @@ router.get('/inclusive/:id', (req, res) => {
 
 router.get('/review/:id', (req, res) => {
   // GET route code here
-  const reviewQuery = `SELECT "review".review_analysis, "location".id FROM "location"
-  JOIN "review" ON "review".location_id = "location".id
-  WHERE "location".id = $1
-  ORDER BY "review".id DESC 
-  LIMIT 3`;
+  const reviewQuery = `SELECT "review".id, "review".review_analysis, location_id FROM "review" WHERE location_id =$1 ORDER BY id DESC LIMIT 3;`;
 
   pool
     .query(reviewQuery, [req.params.id])
@@ -58,13 +54,16 @@ router.get('/review/:id', (req, res) => {
     });
 });
 
-router.post('/review', (req, res) => {
-  console.log(req.body);
+router.post('/review/', (req, res) => {
+  console.log(req.body.newReview.review_analysis);
   //this is the post call for my CRUD
   const insertReviewQuery = `
-  INSERT INTO "review" ("location_id", "review_analysis")
+  INSERT INTO "review" ("review_analysis", "location_id")
 VALUES ($1, $2) `;
-  const insertReviewValues = [req.body.location_id, req.body.review_analysis];
+  const insertReviewValues = [
+    req.body.newReview.review_analysis,
+    req.body.newReview.location_id,
+  ];
   pool
     .query(insertReviewQuery, insertReviewValues)
     .then((results) => {
@@ -79,10 +78,10 @@ VALUES ($1, $2) `;
 router.put('/inclusive/:id', (req, res) => {
   const inclusiveQuery = `UPDATE "location_inclusive_features"
   SET "status" = NOT "status"
-  WHERE "location_id" = $1 AND "inclusive_features_id" =$2;`;
-  const insertinclusiveValues = [req.body.location_id, req.params.id];
+  WHERE "id" = $1;`;
+
   pool
-    .query(inclusiveQuery, insertinclusiveValues)
+    .query(inclusiveQuery, [req.params.id])
     .then((response) => {
       res.sendStatus(200);
     })
