@@ -6,13 +6,12 @@ function ReviewsPage() {
   const history = useHistory();
   const dispatch = useDispatch();
   const review = useSelector((store) => store.review);
+  const parksnplay = useSelector((store) => store.parksnplay);
   const parksnplayid = useSelector((store) => store.parksnplayid);
   const [newReview, setNewReview] = useState({
     review_analysis: '',
     location_id: '',
   });
-
-  let id = review.id;
 
   const handleParksNPlayPage = (event) => {
     event.preventDefault();
@@ -28,15 +27,15 @@ function ReviewsPage() {
         locationId: parksnplayid,
       },
     });
-    setNewReview('');
+    setNewReview({ review_analysis: '' });
   };
 
   return (
     <div>
+      <h1>{parksnplay.title}</h1>
       {review.map((review) => {
         return <p>{review.review_analysis}</p>;
       })}
-
       <form>
         <label> Review: </label> <br></br>
         <textarea
@@ -52,9 +51,7 @@ function ReviewsPage() {
           }
         ></textarea>
       </form>
-
       <button onClick={handleAddReview}>Submit</button>
-
       <button onClick={handleParksNPlayPage}>Parks & Playground</button>
     </div>
   );

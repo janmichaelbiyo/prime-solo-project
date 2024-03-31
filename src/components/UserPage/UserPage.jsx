@@ -2,8 +2,12 @@ import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import AttractionsIcon from '@mui/icons-material/Attractions';
+import { SvgIcon } from '@mui/material';
+import { Icon } from '@mui/material';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -39,6 +43,13 @@ function UserPage() {
     dispatch({ type: 'FETCH_LOCATIONS' });
   }, []);
 
+  const attractionsIcon = L.divIcon({
+    className: 'custom-icon',
+    html: `<div style="display: flex; align-items: center; justify-content: center;"><span style="font-size: 24px; color: #ff0000;"><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">${AttractionsIcon}</svg></span></div>`,
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+  });
+
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
@@ -55,7 +66,11 @@ function UserPage() {
         />
         {location.map((location) => {
           return (
-            <Marker key={location.id} position={[location.lat, location.long]}>
+            <Marker
+              key={location.id}
+              icon={attractionsIcon}
+              position={[location.lat, location.long]}
+            >
               <Popup>
                 {location.title} <br />
                 <button onClick={handleParksNPlayPage} id={location.id}>
