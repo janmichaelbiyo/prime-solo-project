@@ -66,11 +66,7 @@ function UserPage() {
         />
         {location.map((location) => {
           return (
-            <Marker
-              key={location.id}
-              icon={attractionsIcon}
-              position={[location.lat, location.long]}
-            >
+            <Marker key={location.id} position={[location.lat, location.long]}>
               <Popup>
                 {location.title} <br />
                 <button onClick={handleParksNPlayPage} id={location.id}>
