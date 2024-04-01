@@ -6,8 +6,8 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import AttractionsIcon from '@mui/icons-material/Attractions';
+import { Icon } from 'leaflet';
 import { SvgIcon } from '@mui/material';
-import { Icon } from '@mui/material';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -43,12 +43,17 @@ function UserPage() {
     dispatch({ type: 'FETCH_LOCATIONS' });
   }, []);
 
-  const attractionsIcon = L.divIcon({
-    className: 'custom-icon',
-    html: `<div style="display: flex; align-items: center; justify-content: center;"><span style="font-size: 24px; color: #ff0000;"><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">${AttractionsIcon}</svg></span></div>`,
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
+  const housingIcon = new Icon({
+    iconUrl:
+      'https://img.icons8.com/external-photo3ideastudio-solid-photo3ideastudio/64/external-park-public-service-photo3ideastudio-solid-photo3ideastudio.png',
+    iconSize: [24, 24],
+    iconAnchor: [5, 5],
+    popupAnchor: [1, -2],
   });
+
+  {
+    /* <a  href="https://icons8.com/icon/MwBX4tOTpRYk/park">Park</a> icon by <a href="https://icons8.com">Icons8</a> */
+  }
 
   return (
     <div className="container">
@@ -66,7 +71,11 @@ function UserPage() {
         />
         {location.map((location) => {
           return (
-            <Marker key={location.id} position={[location.lat, location.long]}>
+            <Marker
+              key={location.id}
+              position={[location.lat, location.long]}
+              icon={housingIcon}
+            >
               <Popup>
                 {location.title} <br />
                 <button onClick={handleParksNPlayPage} id={location.id}>
