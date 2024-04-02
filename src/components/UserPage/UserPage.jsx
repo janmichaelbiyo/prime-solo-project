@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
+import './UserPage.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import AttractionsIcon from '@mui/icons-material/Attractions';
 import { Icon } from 'leaflet';
-import { SvgIcon } from '@mui/material';
+import Button from '@mui/material/Button';
+import AttractionsIcon from '@mui/icons-material/Attractions';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -46,7 +47,7 @@ function UserPage() {
   const housingIcon = new Icon({
     iconUrl:
       'https://img.icons8.com/external-photo3ideastudio-solid-photo3ideastudio/64/external-park-public-service-photo3ideastudio-solid-photo3ideastudio.png',
-    iconSize: [24, 24],
+    iconSize: [28, 28],
     iconAnchor: [5, 5],
     popupAnchor: [1, -2],
   });
@@ -77,11 +78,20 @@ function UserPage() {
               icon={housingIcon}
             >
               <Popup>
-                {location.title} <br />
-                <button onClick={handleParksNPlayPage} id={location.id}>
-                  {' '}
-                  {location.type}{' '}
-                </button>
+                <div1 class="maptitle">
+                  {location.title} <br />
+                </div1>
+                <div1 class="popup">
+                  <Button
+                    onClick={handleParksNPlayPage}
+                    variant="outlined"
+                    id={location.id}
+                    size="small"
+                    startIcon={<AttractionsIcon />}
+                  >
+                    {location.type}{' '}
+                  </Button>
+                </div1>
               </Popup>
             </Marker>
           );

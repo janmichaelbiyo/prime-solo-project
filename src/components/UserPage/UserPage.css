@@ -1,0 +1,10 @@
+.maptitle {
+  size: 24px;
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+.popup {
+  display: flex;
+  justify-content: center;
+}
