@@ -1,8 +1,11 @@
 .pnptitle {
   text-align: center;
-  padding: 40px;
 }
 
 .pnpmain {
-  background-color: gainsboro;
+  background-image: url('../../documentation/images/access.png');
+  padding-bottom: 100%;
+  background-size: cover;
+  color: beige;
+  font-size: larger;
 }

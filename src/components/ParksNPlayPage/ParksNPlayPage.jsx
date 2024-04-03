@@ -53,7 +53,6 @@ function ParksNPlayPage() {
           </div>
         );
       })}
-
       <h3>Reviews</h3>
       {review.map((review) => {
         return (
@@ -62,10 +61,17 @@ function ParksNPlayPage() {
           </div>
         );
       })}
-
       <button onClick={handleInclusiveFeaturePage}>Inclusive Features</button>
       <button onClick={handleMapPage}>Map</button>
       <button onClick={handleReviewsPage}>Reviews</button>
+      Photo by{' '}
+      <a href="https://unsplash.com/@7ndy?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+        David Knudsen
+      </a>{' '}
+      on{' '}
+      <a href="https://unsplash.com/photos/man-and-woman-kissing-on-beach-during-daytime-4s-D0CAI6UQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+        Unsplash
+      </a>
     </div>
   );
 }
