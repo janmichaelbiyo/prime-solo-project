@@ -10,7 +10,7 @@ import './Footer.css';
 function Footer() {
   return (
     <footer>
-      &copy; Prime Digital Academy
+      &copy; Jan Michael A. Biyo
       <br></br>
       <br />
       <Link className="footerLink" to="/about">

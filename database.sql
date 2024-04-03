@@ -48,7 +48,6 @@ VALUES
 ('Adaptive playground surface'),
 ('Accessible splash pad'),
 ('Accessible trails'),
-('Omnispin spinner'),
 ('We-saw'),
 ('Accessible walkway to waterfront'),
 ('Beach wheelchair'),
@@ -62,7 +61,7 @@ VALUES
 ('Accessible boat launch'),
 ('Accessible mini cabin'),
 ('Accessible beach house'),
-('Accessible sanitation station in campground'),
+('Accessible sanitations station in campground'),
 ('Accessible visitor center'),
 ('Accessible observation platforms'),
 ('Adaptive enChroma viewer'),
@@ -445,10 +444,27 @@ VALUES
 -84.9176216),
 ('William G Miliken State Park and Harbor',
 '1900 Atwater Street, Detroit MI, 48207',
-'Located in the heart of Detroit, along a portion of the citys Detroit Riverwalk, William G. Milliken State Park and Harbor is conveniently located near many major downtown attractions and rovides easy access for fishing, biking, walking and rollerblading on a paved trail.',
+'Located in the heart of Detroit, along a portion of the city’s Detroit Riverwalk, William G. Milliken State Park and Harbor is conveniently located near many major downtown attractions and rovides easy access for fishing, biking, walking and rollerblading on a paved trail.',
 'park',
 42.3331366,
 -83.0257791);
+
+INSERT INTO "review" ("location_id")
+VALUES
+(1),(2),(3),(4),(5),(6),(7),(8),(9),(10),
+(11),(12),(13),(14),(15),(16),(17),(18),(19),(20),
+(21),(22),(23),(24),(25),(26),(27),(28),(29),(20),
+(31),(32),(33),(34),(35),(36),(37),(38),(39),(30),
+(41),(42),(43),(44),(45),(46),(47),(48),(49),(40),
+(51),(52),(53),(54),(55),(56),(57),(58),(59),(50),
+(61),(62),(63);
+
+INSERT INTO "review" ("location_id", "review_analysis")
+VALUES
+ (39, 'The park grows on you and its features are pretty good');
+ 
+
+ 
 
 INSERT INTO "location_inclusive_features" ("location_id", "inclusive_features_id", "status")
 VALUES 
@@ -504,7 +520,7 @@ VALUES
 (50, 11, 'true'), (50, 12, 'true'), (50, 20, 'true'), (50, 14, 'true'), (50, 21, 'true'), (50, 15, 'true'), 
 (51, 11, 'true'), (51, 12, 'true'), 
 (52, 14, 'true'), (52, 13, 'true'), (52, 15, 'true'), (52, 28, 'true'), 
-(53, 27, 'true'), (53, 24, 'true'), (53, 7, 'true'), (53, 25, 'true'), (53, 26, 'true'), 10
+(53, 27, 'true'), (53, 24, 'true'), (53, 7, 'true'), (53, 25, 'true'), (53, 26, 'true'), 
 (54, 11, 'true'), 
 (55, 11, 'true'), (55, 12, 'true'), (55, 20, 'true'), (55, 14, 'true'), (55, 13, 'true'),
 (56, 11, 'true'), (56, 22, 'true'), (56, 20, 'true'), (56, 14, 'true'), (56, 13, 'true'), (56, 7, 'true'), 
@@ -515,3 +531,37 @@ VALUES
 (61, 11, 'true'), (61, 12, 'true'), (61, 15, 'true'), (61, 13, 'true'), 
 (62, 11, 'true'), (62, 12, 'true'), 
 (63, 25, 'true'), (63, 26, 'true'), (63, 15, 'true'), (63, 9, 'true');
+
+
+
+SELECT "location".title, "location".address, "location".info FROM "location"
+WHERE "location".id =4
+GROUP BY "location".title, "location".address, "location".info;
+
+SELECT "inclusive_features".feature, "location_inclusive_features".status, "location_inclusive_features".inclusive_features_id, "location_inclusive_features".location_id FROM "location"
+JOIN "location_inclusive_features" ON "location_inclusive_features".location_id = "location".id
+JOIN "inclusive_features" ON "inclusive_features".id = "location_inclusive_features".inclusive_features_id 
+WHERE "location_inclusive_features".location_id =17
+GROUP BY "inclusive_features".feature, "location_inclusive_features".status, "location_inclusive_features".inclusive_features_id, "location_inclusive_features".location_id ;
+
+
+SELECT "location".id, "location".title, "location".type, "location".lat, "location".long FROM "location" 
+GROUP BY "location".id, "location".title, "location".type, "location".lat, "location".long;
+
+WITH "ra" AS (SELECT review_analysis, location_id FROM "review" WHERE location_id = '39' ORDER BY id DESC LIMIT 3)
+SELECT array_agg("ra".review_analysis), "review".location_id FROM "location"
+JOIN "review" ON "review".location_id = "location".id
+JOIN "ra" ON "ra".location_id = "location".id 
+WHERE "location".id = 39
+GROUP BY "review".location_id;
+
+SELECT "review".id, "review".review_analysis, location_id FROM "review" WHERE location_id = '39' ORDER BY id DESC LIMIT 3;
+
+UPDATE "location_inclusive_features"
+SET "status" = NOT "status"
+WHERE "id" = 50;
+
+DELETE FROM "location_inclusive_features" 
+WHERE "id" = 50;
+
+

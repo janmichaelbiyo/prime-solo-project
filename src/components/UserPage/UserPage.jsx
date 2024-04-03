@@ -57,7 +57,7 @@ function UserPage() {
   }
 
   return (
-    <div className="container">
+    <div className="container1">
       <h2>Welcome, {user.username}!</h2>
 
       <MapContainer
@@ -98,7 +98,6 @@ function UserPage() {
         })}
       </MapContainer>
 
-      <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" />
     </div>
   );

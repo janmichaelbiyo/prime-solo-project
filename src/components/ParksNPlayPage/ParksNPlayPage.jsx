@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
+import './ParksNPlayPage.css';
+import { Box, Container, Stack } from '@mui/material';
 
 function ParksNPlayPage() {
   const parksnplay = useSelector((store) => store.parksnplay);
@@ -27,16 +29,19 @@ function ParksNPlayPage() {
   };
 
   return (
-    <>
-      <h1>{parksnplay.title}</h1>
+    <div class="pnpmain">
+      <Box>
+        <Stack direction={'column'} justifyContent="space-between">
+          <h1 class="pnptitle">{parksnplay.title}</h1>
 
-      <h3> Address </h3>
-      <p>{parksnplay.address}</p>
+          <h3> Address </h3>
+          <p>{parksnplay.address}</p>
 
-      <h3> Info </h3>
+          <h3> Info </h3>
 
-      <p> {parksnplay.info}</p>
-
+          <p> {parksnplay.info}</p>
+        </Stack>
+      </Box>
       <h3>Inclusive Features</h3>
       {inclusive.map((inclusive) => {
         return (
@@ -61,7 +66,7 @@ function ParksNPlayPage() {
       <button onClick={handleInclusiveFeaturePage}>Inclusive Features</button>
       <button onClick={handleMapPage}>Map</button>
       <button onClick={handleReviewsPage}>Reviews</button>
-    </>
+    </div>
   );
 }
 

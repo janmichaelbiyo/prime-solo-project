@@ -1,7 +1,9 @@
 /* --------------------------------------------------------------------------------
 Grid
 -------------------------------------------------------------------------------- */
-
+.container {
+  background-color: gainsboro;
+}
 .grid {
   display: flex;
   flex: 0 1 auto;
@@ -11,6 +13,8 @@ Grid
   /* defaults to 'flex-start' */
   justify-content: flex-start;
   align-items: flex-start;
+  background-color: gainsboro;
+  padding: 5vh;
 }
 
 .grid-col {
@@ -27,6 +31,7 @@ Grid
 .grid-col_2 {
   flex-basis: 16.66666667%;
   max-width: 16.66666667%;
+  background-color: aqua;
 }
 
 .grid-col_3 {
