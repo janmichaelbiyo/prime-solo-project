@@ -1,1 +1,10 @@
+.inclusiveMain {
+  background-image: url('../../documentation/images/inclusive.png');
+  padding-bottom: 40vh;
+  padding-top: 10px;
+}
 
+.inclusiveList {
+  color: black;
+  font-size: x-large;
+}

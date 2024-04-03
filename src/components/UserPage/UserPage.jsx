@@ -47,9 +47,9 @@ function UserPage() {
   const housingIcon = new Icon({
     iconUrl:
       'https://img.icons8.com/external-photo3ideastudio-solid-photo3ideastudio/64/external-park-public-service-photo3ideastudio-solid-photo3ideastudio.png',
-    iconSize: [28, 28],
-    iconAnchor: [5, 5],
-    popupAnchor: [1, -2],
+    iconSize: [35, 35],
+    iconAnchor: [0, 20],
+    popupAnchor: [1, -1],
   });
 
   {

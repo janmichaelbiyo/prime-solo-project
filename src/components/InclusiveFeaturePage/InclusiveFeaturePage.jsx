@@ -1,12 +1,14 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import './InclusiveFeaturePage.css';
 
 function InclusiveFeaturePage() {
   const history = useHistory();
   const dispatch = useDispatch();
   const inclusive = useSelector((store) => store.inclusive);
   const parksnplayid = useSelector((store) => store.parksnplayid);
+  const parksnplay = useSelector((store) => store.parksnplay);
 
   const handleParksNPlayPage = (event) => {
     event.preventDefault();
@@ -31,11 +33,12 @@ function InclusiveFeaturePage() {
   };
 
   return (
-    <div>
-      <h4>Inclusive Features</h4>
+    <div className="inclusiveMain">
+      <h1>{parksnplay.title}</h1>
+      <h3>Inclusive Features</h3>
       {inclusive.map((inclusive) => {
         return (
-          <div key={inclusive.id}>
+          <div key={inclusive.id} className="inclusiveList">
             <p>{inclusive.feature}</p>
             <p>{inclusive.status ? 'Available' : 'Unavailable'}</p>
             <button onClick={handleInsclusiveFeature} id={inclusive.id}>

@@ -15,7 +15,7 @@ CREATE TABLE "inclusive_features" (
 
 CREATE TABLE "review" (
   "id" SERIAL PRIMARY KEY,
-  "review_analysis" varchar (250),
+  "review_analysis" varchar (1000),
   "user_id" integer,
   "location_id" integer
 );
@@ -172,12 +172,12 @@ VALUES
 'playground',
 42.6642854,
 -83.3451961),
-('Patriarche Park',
-'1100 Alton St, East Lansing, MI 48823',
-'The 1.2-acre playground, which opened in 2014, is accessible, has a rubberized play surface, walkways and a rain garden.',
+('Scarlets Smile Playground', 
+'4380 S Commerce Rd, Commerce Charter Twp, MI 48382',
+'Scarlet’s Smile, a 501(c)3 organization with the mission of building a barrier-free all-inclusive playground, was named after Scarlet, a wonderful six-year-old who was diagnosed with SMA (Spinal Muscular Atrophy) at the age of eight months.',
 'playground',
-42.7452059,
--84.4717445),
+42.586630,
+-83.479060),
 ('Play 4 All',
 '35700 John St, Wayne, MI 48184',
 'Completed in 2009, this universally accessible playground is located within and existing neighborhood park and provides a wide range of recreational, sensory, and learning opportunities for both parents and children of the surrounding community.',
@@ -485,7 +485,7 @@ VALUES
 (15, 1, 'true'), (15, 7, 'true'), 
 (16, 1, 'true'), (16, 2, 'true'), 
 (17, 1, 'true'), (17, 7, 'true'), (17, 9, 'true'), 
-(18, 1, 'true'), (18, 2, 'true'), (18, 7, 'true'), 
+(18, 1, 'true'), (18, 2, 'true'), (18, 7, 'true'), (18, 5, 'true'), (18, 3, 'true'), (18, 13, 'true'),
 (19, 1, 'true'), (19, 2, 'true'), (19, 3, 'true'), (19, 5, 'true'), (19, 7, 'true'), 
 (20, 1, 'true'), (20, 2, 'true'), (20, 7, 'true'), 
 (21, 1, 'true'), (21, 7, 'true'), (21, 5, 'true'), 
