@@ -3,7 +3,9 @@ Grid
 -------------------------------------------------------------------------------- */
 .container {
   background-color: gainsboro;
+  background-image: url('../../documentation/images/mapPhoto.png');
 }
+
 .grid {
   display: flex;
   flex: 0 1 auto;
@@ -14,7 +16,10 @@ Grid
   justify-content: flex-start;
   align-items: flex-start;
   background-color: gainsboro;
-  padding: 5vh;
+  padding: 10vh;
+  background-image: url('../../documentation/images/mapPhoto.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .grid-col {
@@ -62,6 +67,7 @@ Grid
 .grid-col_8 {
   flex-basis: 66.66666667%;
   max-width: 66.66666667%;
+  color: aquamarine;
 }
 
 .grid-col_9 {
@@ -82,4 +88,5 @@ Grid
 .grid-col_12 {
   flex-basis: 100%;
   max-width: 100%;
+  color: aquamarine;
 }
