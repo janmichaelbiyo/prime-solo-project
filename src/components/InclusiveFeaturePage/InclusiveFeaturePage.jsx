@@ -50,8 +50,15 @@ function InclusiveFeaturePage() {
           </div>
         );
       })}
-
       <button onClick={handleParksNPlayPage}>Parks & Playground</button>
+      Photo by{' '}
+      <a href="https://unsplash.com/@sharonmccutcheon?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+        Alexander Grey
+      </a>{' '}
+      on{' '}
+      <a href="https://unsplash.com/photos/orange-green-and-blue-abstract-painting-Ur_NzyKfCo4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+        Unsplash
+      </a>
     </div>
   );
 }
