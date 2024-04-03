@@ -9,7 +9,6 @@ function LoginPage() {
   return (
     <div id="loginMain">
       <LoginForm />
-
       <center>
         <button
           type="button"
@@ -21,6 +20,16 @@ function LoginPage() {
           Register
         </button>
       </center>
+      <div className="thanks">
+        Photo by{' '}
+        <a href="https://unsplash.com/@andrewtneel?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+          Andrew Neel
+        </a>{' '}
+        on{' '}
+        <a href="https://unsplash.com/photos/maps-lying-on-the-floor-1-29wyvvLJA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+          Unsplash
+        </a>
+      </div>
     </div>
   );
 }

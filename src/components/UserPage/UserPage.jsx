@@ -97,8 +97,6 @@ function UserPage() {
           );
         })}
       </MapContainer>
-
-      <LogOutButton className="btn" />
     </div>
   );
 }

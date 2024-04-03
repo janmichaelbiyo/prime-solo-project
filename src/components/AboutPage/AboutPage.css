@@ -1,5 +1,8 @@
 .about {
-  text-align: center;
-  padding-left: 500px;
-  padding-right: 500px;
+  background-color: gainsboro;
 }
+
+/* text-align: center;
+  padding: 50vh;
+  color: aquamarine; */
+/* background-image: url('../../documentation/images/theBird.png'); */

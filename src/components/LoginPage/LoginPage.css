@@ -1,4 +1,11 @@
 #loginMain {
   background-color: gainsboro;
   padding: 35vh;
+  background-image: url('../../documentation/images/loginpage.png');
+  background-size: cover;
+}
+
+.thanks {
+  color: aquamarine;
+  text-align: end;
 }
