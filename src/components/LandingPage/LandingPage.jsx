@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
@@ -35,25 +37,28 @@ function LandingPage() {
           <RegisterForm />
 
           <center>
-            <h4 className="grid-col_12">Already a Member?</h4>
+            <h4 className="grid-col_8">Already a Member?</h4>
             <button className="btn btn_sizeSm" onClick={onLogin}>
               Login
             </button>
           </center>
         </div>
       </div>
+
       <div className="grid-col_12">
-        Photo by{' '}
-        <a
-          href="https://unsplash.com/@anniespratt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
-          color="aquamarine"
+        <Paper
+          elevation={0}
+          sx={{ height: 1, width: 250, backgroundColor: 'gainsboro' }}
         >
-          Annie Spratt
-        </a>{' '}
-        on{' '}
-        <a href="https://unsplash.com/photos/child-looking-at-map-kZO9xqmO_TA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-          Unsplash
-        </a>
+          Photo by{' '}
+          <a href="https://unsplash.com/@anniespratt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+            Annie Spratt
+          </a>{' '}
+          on{' '}
+          <a href="https://unsplash.com/photos/child-looking-at-map-kZO9xqmO_TA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+            Unsplash
+          </a>
+        </Paper>
       </div>
     </div>
   );

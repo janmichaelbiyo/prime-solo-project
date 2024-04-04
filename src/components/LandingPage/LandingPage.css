@@ -4,6 +4,7 @@ Grid
 .container {
   background-color: gainsboro;
   background-image: url('../../documentation/images/mapPhoto.png');
+  padding-bottom: 30px;
 }
 
 .grid {
@@ -20,6 +21,7 @@ Grid
   background-image: url('../../documentation/images/mapPhoto.png');
   background-repeat: no-repeat;
   background-size: cover;
+  padding-bottom: 30vh;
 }
 
 .grid-col {
@@ -88,5 +90,5 @@ Grid
 .grid-col_12 {
   flex-basis: 100%;
   max-width: 100%;
-  color: aquamarine;
+  color: black;
 }

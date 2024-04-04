@@ -35,12 +35,20 @@ function AboutPage() {
           alignItems="center"
           p={6}
           paddingTop={20}
+          sx={{ fontSize: 24, fontWeight: '700' }}
         >
           This page is all thanks to the best little boy I know. His kind heart
           and warm spirit embodies this page. We hope you enjoy it and visit all
           these great parks and playgrounds. I believe Mr Xavier hopes to expand
           to all the states since one of his goals is to visit all the national
           parks of the US. If ya ever see us around and about come say hi!!!!.{' '}
+        </Box>
+        <Box
+          height={700}
+          width={700}
+          sx={{ alignContent: 'center', paddingTop: 20 }}
+        >
+          <img src="../../documentation/images/TechUsed.png" alt="Tech Used" />
         </Box>
       </Stack>
     </div>
