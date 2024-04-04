@@ -1,11 +1,11 @@
-#loginMain {
+.registerMain {
   background-color: gainsboro;
   padding: 35vh;
   background-image: url('../../documentation/images/loginpage.png');
   background-size: cover;
 }
 
-.btnL {
+.btnR {
   display: inline-block;
   padding: 10px 20px;
   border-color: #014041;
@@ -18,7 +18,7 @@
   cursor: pointer;
 }
 
-.btn_asLinkL {
+.btn_asLinkR {
   padding: 0;
   border-width: 0;
   border-bottom: 1px solid #444;
