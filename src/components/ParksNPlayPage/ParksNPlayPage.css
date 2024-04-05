@@ -3,9 +3,7 @@
 }
 
 .pnpmain {
-  background-image: url('../../documentation/images/access.png');
-  padding-bottom: 100%;
-  background-size: cover;
-  color: beige;
+  background-color: gainsboro;
+  color: black;
   font-size: larger;
 }

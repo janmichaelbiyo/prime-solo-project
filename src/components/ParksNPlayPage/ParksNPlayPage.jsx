@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import './ParksNPlayPage.css';
 import { Box, Container, Stack } from '@mui/material';
+import { styled } from '@mui/system';
 
 function ParksNPlayPage() {
   const parksnplay = useSelector((store) => store.parksnplay);
@@ -28,18 +29,45 @@ function ParksNPlayPage() {
     history.push('/inclusive');
   };
 
+  const Item = styled('div')(({ theme }) => ({
+    backgroundColor: 'gray',
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    borderRadius: 4,
+  }));
+
   return (
     <div class="pnpmain">
-      <Box>
-        <Stack direction={'column'} justifyContent="space-between">
-          <h1 class="pnptitle">{parksnplay.title}</h1>
+      <Box sx={{ width: '50%' }}>
+        <Stack
+          direction={'column'}
+          justifyContent="space-between"
+          textAlign={'center'}
+          spacing={2}
+        >
+          <Item
+            sx={{
+              right: 500,
+              position: 'absolute',
+            }}
+          >
+            <h1 class="pnptitle">{parksnplay.title}</h1>
+          </Item>
+          <Item
+            sx={{
+              right: 500,
+              bottom: 200,
+              position: 'absolute',
+            }}
+          >
+            <h3> Address </h3>
+            <p>{parksnplay.address}</p>
+          </Item>
 
-          <h3> Address </h3>
-          <p>{parksnplay.address}</p>
-
-          <h3> Info </h3>
-
-          <p> {parksnplay.info}</p>
+          <Item>
+            <h3> Info </h3>
+            <p> {parksnplay.info}</p>
+          </Item>
         </Stack>
       </Box>
       <h3>Inclusive Features</h3>
