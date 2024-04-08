@@ -1,7 +1,26 @@
 .reviewMain {
   background-image: url('../../documentation/images/review.png');
   background-size: cover;
-  padding-left: 30vh;
-  padding-top: 10px;
-  padding-bottom: 30vh;
+  display: flex;
+  flex-flow: column wrap;
+  border-color: antiquewhite;
+  border-style: outset;
+  border-width: 5px;
+  padding: 6vh;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.listR {
+  padding-left: 200px;
+  padding-right: 200px;
 }
