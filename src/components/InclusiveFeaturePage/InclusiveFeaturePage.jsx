@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './InclusiveFeaturePage.css';
+import Switch from '@mui/material/Switch';
 
 function InclusiveFeaturePage() {
   const history = useHistory();
@@ -41,9 +42,15 @@ function InclusiveFeaturePage() {
           <div key={inclusive.id} className="inclusiveList">
             <p>{inclusive.feature}</p>
             <p>{inclusive.status ? 'Available' : 'Unavailable'}</p>
-            <button onClick={handleInsclusiveFeature} id={inclusive.id}>
+            {/* <button onClick={handleInsclusiveFeature} id={inclusive.id}>
               Available or Not
-            </button>
+            </button> */}
+            <Switch
+              onChange={handleInsclusiveFeature}
+              id={inclusive.id}
+              label="here"
+              size="large"
+            />
             <button onClick={handleDeleteInclusive} id={inclusive.id}>
               Delete
             </button>

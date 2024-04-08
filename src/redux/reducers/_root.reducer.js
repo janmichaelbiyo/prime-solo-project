@@ -7,6 +7,7 @@ import review from './review.reducer';
 import inclusive from './inclusive.reducer';
 import parksnplayid from './parksnplayid.reducer';
 import reviewid from './reviewid.reducer';
+import pictures from './pictures.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   review, // will have review info
   inclusive, //will have inclusive info
   parksnplayid, // a reducer that holds the parksnplayid from the click
-  reviewid,
+  reviewid, // a reducer that holds the review id
+  pictures, // a reducer that holds the pictures information
 });
 
 export default rootReducer;

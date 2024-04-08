@@ -54,6 +54,23 @@ router.get('/review/:id', (req, res) => {
     });
 });
 
+router.get('/pictures/:id', (req, res) => {
+  // GET route code here
+  const picturesQuery = `SELECT "pictures".artist, "pictures".attribute, "pictures".pic, "pictures".source, "location_pictures".location_id FROM "pictures"
+  JOIN "location_pictures" ON "location_pictures".pictures_id = "pictures".id
+  JOIN "location" ON "location".id = "location_pictures".location_id
+  WHERE "location".id = $1
+  GROUP BY "pictures".artist, "pictures".attribute, "pictures".pic, "pictures".source, "location_pictures".location_id;`;
+
+  pool
+    .query(picturesQuery, [req.params.id])
+    .then((results) => res.send(results.rows[0]))
+    .catch((error) => {
+      console.log('problems with the picture!!!!!', error);
+      res.sendStatus(500);
+    });
+});
+
 router.post('/review/', (req, res) => {
   console.log(req.body.newReview.review_analysis);
   //this is the post call for my CRUD

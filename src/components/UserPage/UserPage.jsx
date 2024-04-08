@@ -36,6 +36,10 @@ function UserPage() {
       type: 'SET_PARKS_N_PLAY_ID',
       payload: event.target.id,
     });
+    dispatch({
+      type: 'FETCH_PICTURES',
+      payload: event.target.id,
+    });
 
     history.push('/parksnplay');
   };

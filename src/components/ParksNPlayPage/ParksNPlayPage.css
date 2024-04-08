@@ -4,6 +4,45 @@
 
 .pnpmain {
   background-color: gainsboro;
-  color: black;
+  display: flex;
+  flex-flow: column wrap;
+  border-color: antiquewhite;
+  border-style: outset;
+  border-width: 5px;
+  padding: 10px;
+}
+
+.infoMain {
   font-size: larger;
+  padding-bottom: 10px;
+}
+
+.inclusivepnpMain {
+  padding: 10px;
+  text-align: center;
+}
+
+.reviewpnpMain {
+  padding-bottom: 15px;
+}
+
+.infoAddress {
+  text-align: center;
+}
+
+.infoText {
+  text-align: left;
+}
+
+.infoTextH {
+  text-align: center;
+  font-style: oblique;
+}
+
+.picture {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border: solid;
 }

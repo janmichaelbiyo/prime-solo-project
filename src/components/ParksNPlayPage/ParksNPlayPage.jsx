@@ -2,13 +2,18 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import './ParksNPlayPage.css';
-import { Box, Container, Stack } from '@mui/material';
+import { Box, Grid } from '@mui/material';
+import Button from '@mui/material/Button';
 import { styled } from '@mui/system';
+import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
+import MapIcon from '@mui/icons-material/Map';
+import RateReviewIcon from '@mui/icons-material/RateReview';
 
 function ParksNPlayPage() {
   const parksnplay = useSelector((store) => store.parksnplay);
   const inclusive = useSelector((store) => store.inclusive);
   const review = useSelector((store) => store.review);
+  const pictures = useSelector((store) => store.pictures);
   const dispatch = useDispatch();
   let history = useHistory();
 
@@ -29,78 +34,108 @@ function ParksNPlayPage() {
     history.push('/inclusive');
   };
 
-  const Item = styled('div')(({ theme }) => ({
-    backgroundColor: 'gray',
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    borderRadius: 4,
-  }));
-
   return (
-    <div class="pnpmain">
-      <Box sx={{ width: '50%' }}>
-        <Stack
-          direction={'column'}
-          justifyContent="space-between"
-          textAlign={'center'}
-          spacing={2}
-        >
-          <Item
-            sx={{
-              right: 500,
-              position: 'absolute',
-            }}
-          >
+    <>
+      <Box class="pnpmain">
+        <Grid className="infoMain" container spacing={2} alignItems={'center'}>
+          <Grid xs={12} item>
             <h1 class="pnptitle">{parksnplay.title}</h1>
-          </Item>
-          <Item
-            sx={{
-              right: 500,
-              bottom: 200,
-              position: 'absolute',
-            }}
-          >
+          </Grid>
+          <Grid className="infoAddress" xs={4} item>
             <h3> Address </h3>
             <p>{parksnplay.address}</p>
-          </Item>
-
-          <Item>
-            <h3> Info </h3>
+          </Grid>
+          <Grid xs={8} item>
+            <Box>
+              <img
+                src={pictures.pic}
+                alt="park or playground"
+                className="picture"
+              />
+            </Box>
+            <Box textAlign={'right'}>
+              Photo by <a href={pictures.source}>{pictures.artist}</a> on{' '}
+              <a href={pictures.attribute}>Unsplash</a>
+            </Box>
+          </Grid>
+          <Grid item xs={4}>
+            <Box className="inclusivepnpMain">
+              <h3>Inclusive Features</h3>
+              {inclusive.map((inclusive) => {
+                return (
+                  <div>
+                    <p>
+                      {inclusive.feature}
+                      <br />
+                      {inclusive.status ? 'Available' : 'Unavailable'}
+                    </p>
+                  </div>
+                );
+              })}
+            </Box>
+          </Grid>
+          <Grid className="infoText" xs={8} item>
+            <h3 className="infoTextH"> Info </h3>
             <p> {parksnplay.info}</p>
-          </Item>
-        </Stack>
+          </Grid>
+
+          <Grid xs={12} item>
+            <Box className="reviewpnpMain">
+              <h3 className="infoTextH">Reviews</h3>
+              {review.map((review) => {
+                return (
+                  <ul>
+                    <li>{review.review_analysis}</li>
+                  </ul>
+                );
+              })}
+            </Box>
+          </Grid>
+
+          <Grid xs={4} item>
+            <Box textAlign={'center'}>
+              <Button
+                onClick={handleInclusiveFeaturePage}
+                variant="contained"
+                size="large"
+                sx={{ backgroundColor: 'purple' }}
+                startIcon={<AccessibleForwardIcon />}
+              >
+                Inclusive Features
+              </Button>
+            </Box>
+          </Grid>
+
+          <Grid xs={4} item>
+            <Box textAlign={'center'}>
+              <Button
+                onClick={handleMapPage}
+                variant="contained"
+                size="large"
+                sx={{ backgroundColor: 'purple' }}
+                startIcon={<MapIcon />}
+              >
+                Map
+              </Button>
+            </Box>
+          </Grid>
+
+          <Grid xs={4} item>
+            <Box textAlign={'center'}>
+              <Button
+                onClick={handleReviewsPage}
+                variant="contained"
+                size="large"
+                sx={{ backgroundColor: 'purple' }}
+                startIcon={<RateReviewIcon />}
+              >
+                Reviews
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
       </Box>
-      <h3>Inclusive Features</h3>
-      {inclusive.map((inclusive) => {
-        return (
-          <div>
-            <p>
-              {inclusive.feature} <bk></bk>
-              {inclusive.status ? 'Available' : 'Unavailable'}
-            </p>
-          </div>
-        );
-      })}
-      <h3>Reviews</h3>
-      {review.map((review) => {
-        return (
-          <div>
-            <p>{review.review_analysis}</p>
-          </div>
-        );
-      })}
-      <button onClick={handleInclusiveFeaturePage}>Inclusive Features</button>
-      <button onClick={handleMapPage}>Map</button>
-      <button onClick={handleReviewsPage}>Reviews</button>
-      Photo by{' '}
-      <a href="https://unsplash.com/@7ndy?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-        David Knudsen
-      </a>{' '}
-      on{' '}
-      <a href="https://unsplash.com/photos/man-and-woman-kissing-on-beach-during-daytime-4s-D0CAI6UQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-        Unsplash
-      </a>
-    </div>
+    </>
   );
 }
 
