@@ -46,3 +46,35 @@
   width: 50%;
   border: solid;
 }
+
+.addressSize {
+  font-size: x-large;
+}
+
+.inclusiveSize {
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.infoSize {
+  font-size: x-large;
+}
+
+.inclusiveHeader {
+  font-variant: small-caps;
+  color: black;
+}
+
+.inclusiveHeaderbackground {
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  text-shadow: whitesmoke 1px 0 10px;
+}

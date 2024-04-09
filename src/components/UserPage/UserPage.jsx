@@ -82,10 +82,10 @@ function UserPage() {
               icon={housingIcon}
             >
               <Popup>
-                <div1 class="maptitle">
+                <div class="maptitle">
                   {location.title} <br />
-                </div1>
-                <div1 class="popup">
+                </div>
+                <div class="popup">
                   <Button
                     onClick={handleParksNPlayPage}
                     variant="outlined"
@@ -95,7 +95,7 @@ function UserPage() {
                   >
                     {location.type}{' '}
                   </Button>
-                </div1>
+                </div>
               </Popup>
             </Marker>
           );

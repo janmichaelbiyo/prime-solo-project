@@ -4,6 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import './ParksNPlayPage.css';
 import { Box, Grid } from '@mui/material';
 import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
 import { styled } from '@mui/system';
 import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
 import MapIcon from '@mui/icons-material/Map';
@@ -42,8 +43,8 @@ function ParksNPlayPage() {
             <h1 class="pnptitle">{parksnplay.title}</h1>
           </Grid>
           <Grid className="infoAddress" xs={4} item>
-            <h3> Address </h3>
-            <p>{parksnplay.address}</p>
+            <h2> Address </h2>
+            <p className="addressSize">{parksnplay.address}</p>
           </Grid>
           <Grid xs={8} item>
             <Box>
@@ -60,14 +61,37 @@ function ParksNPlayPage() {
           </Grid>
           <Grid item xs={4}>
             <Box className="inclusivepnpMain">
-              <h3>Inclusive Features</h3>
+              <Box className="inclusiveHeaderbackground">
+                <Paper
+                  elevation={24}
+                  sx={{
+                    backgroundColor: 'transparent',
+                  }}
+                >
+                  <p className="inclusiveSize">Inclusive Features</p>
+                </Paper>
+              </Box>
               {inclusive.map((inclusive) => {
                 return (
                   <div>
                     <p>
-                      {inclusive.feature}
+                      <Paper
+                        elevation={0}
+                        sx={{
+                          backgroundColor: 'transparent',
+                          fontSize: 20,
+                          fontWeight: 'bold',
+                        }}
+                      >
+                        {inclusive.feature}
+                      </Paper>
                       <br />
-                      {inclusive.status ? 'Available' : 'Unavailable'}
+                      <Paper
+                        elevation={2}
+                        sx={{ backgroundColor: 'transparent', fontSize: 24 }}
+                      >
+                        {inclusive.status ? 'Available' : 'Unavailable'}
+                      </Paper>
                     </p>
                   </div>
                 );
@@ -76,7 +100,7 @@ function ParksNPlayPage() {
           </Grid>
           <Grid className="infoText" xs={8} item>
             <h3 className="infoTextH"> Info </h3>
-            <p> {parksnplay.info}</p>
+            <p className="infoSize"> {parksnplay.info}</p>
           </Grid>
 
           <Grid xs={12} item>

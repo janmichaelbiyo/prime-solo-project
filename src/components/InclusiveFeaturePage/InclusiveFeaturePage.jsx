@@ -2,7 +2,12 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './InclusiveFeaturePage.css';
-import Switch from '@mui/material/Switch';
+import Button from '@mui/material/Button';
+import { Box, Grid } from '@mui/material';
+import Paper from '@mui/material/Paper';
+import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import AttractionsOutlinedIcon from '@mui/icons-material/AttractionsOutlined';
 
 function InclusiveFeaturePage() {
   const history = useHistory();
@@ -34,39 +39,82 @@ function InclusiveFeaturePage() {
   };
 
   return (
-    <div className="inclusiveMain">
-      <h1>{parksnplay.title}</h1>
-      <h3>Inclusive Features</h3>
-      {inclusive.map((inclusive) => {
-        return (
-          <div key={inclusive.id} className="inclusiveList">
-            <p>{inclusive.feature}</p>
-            <p>{inclusive.status ? 'Available' : 'Unavailable'}</p>
-            {/* <button onClick={handleInsclusiveFeature} id={inclusive.id}>
-              Available or Not
-            </button> */}
-            <Switch
-              onChange={handleInsclusiveFeature}
-              id={inclusive.id}
-              label="here"
+    <>
+      <Box className="inclusiveMainpage">
+        <Grid container spacing={2} alignItems={'center'}>
+          <Grid xs={12} item>
+            <h1 className="inclusiveH1">{parksnplay.title}</h1>
+          </Grid>
+          <Grid xs={4} item textAlign={'center'}>
+            <Box>
+              <Box className="inclusiveHeaderbackground">
+                <Paper
+                  elevation={24}
+                  sx={{
+                    backgroundColor: 'transparent',
+                  }}
+                >
+                  <p className="inclusiveSize">Inclusive Features</p>
+                </Paper>
+              </Box>
+              {inclusive.map((inclusive) => {
+                return (
+                  <div key={inclusive.id} className="inclusiveList">
+                    <p className="inclusivefeatureSize">{inclusive.feature}</p>
+                    <p className="inclusviestatusSize">
+                      {inclusive.status ? 'Available' : 'Unavailable'}
+                    </p>
+
+                    <Button
+                      onClick={handleInsclusiveFeature}
+                      id={inclusive.id}
+                      variant="contained"
+                      size="large"
+                      sx={{ backgroundColor: 'purple' }}
+                      endIcon={<AccessibleForwardIcon />}
+                    >
+                      Availability
+                    </Button>
+                    {'            '}
+
+                    <Button
+                      onClick={handleDeleteInclusive}
+                      id={inclusive.id}
+                      variant="contained"
+                      size="large"
+                      sx={{ backgroundColor: 'purple' }}
+                      endIcon={<DeleteOutlinedIcon />}
+                    >
+                      Delete
+                    </Button>
+                  </div>
+                );
+              })}
+            </Box>
+          </Grid>
+          <Grid xs={6} item textAlign={'center'}>
+            <Box>
+              <img
+                src="../../documentation/images/inclusive.png"
+                alt="new inclusive sign"
+                className="pictureinclusive"
+              />
+            </Box>
+          </Grid>
+          <Grid xs={12} item textAlign={'center'}>
+            <Button
+              onClick={handleParksNPlayPage}
+              variant="contained"
               size="large"
-            />
-            <button onClick={handleDeleteInclusive} id={inclusive.id}>
-              Delete
-            </button>
-          </div>
-        );
-      })}
-      <button onClick={handleParksNPlayPage}>Parks & Playground</button>
-      Photo by{' '}
-      <a href="https://unsplash.com/@sharonmccutcheon?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-        Alexander Grey
-      </a>{' '}
-      on{' '}
-      <a href="https://unsplash.com/photos/orange-green-and-blue-abstract-painting-Ur_NzyKfCo4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-        Unsplash
-      </a>
-    </div>
+              sx={{ backgroundColor: 'purple' }}
+              startIcon={<AttractionsOutlinedIcon />}
+            >
+              Parks or Playground
+            </Button>
+          </Grid>
+        </Grid>
+      </Box>
+    </>
   );
 }
 
