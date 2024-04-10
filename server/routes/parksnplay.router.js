@@ -43,7 +43,11 @@ router.get('/inclusive/:id', (req, res) => {
 
 router.get('/review/:id', (req, res) => {
   // GET route code here
-  const reviewQuery = `SELECT "review".id, "review".review_analysis, location_id FROM "review" WHERE location_id =$1 ORDER BY id DESC LIMIT 3;`;
+  const reviewQuery = `SELECT "review".id, "review".review_analysis,  "review".location_id,  "review".user_id, "user".username FROM "review" 
+  JOIN "user" ON "user".id = "review".user_id
+  WHERE location_id = $1 
+  GROUP BY "review".id, "review".review_analysis,  "review".location_id,  "review".user_id, "user".username 
+  ORDER BY id DESC LIMIT 3;`;
 
   pool
     .query(reviewQuery, [req.params.id])
@@ -75,11 +79,12 @@ router.post('/review/', (req, res) => {
   console.log(req.body.newReview.review_analysis);
   //this is the post call for my CRUD
   const insertReviewQuery = `
-  INSERT INTO "review" ("review_analysis", "location_id")
-VALUES ($1, $2) `;
+  INSERT INTO "review" ("review_analysis", "location_id", "user_id")
+VALUES ($1, $2, $3) `;
   const insertReviewValues = [
     req.body.newReview.review_analysis,
     req.body.newReview.location_id,
+    req.body.newReview.user_id,
   ];
   pool
     .query(insertReviewQuery, insertReviewValues)

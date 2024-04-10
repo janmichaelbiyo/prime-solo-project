@@ -111,13 +111,13 @@ function ParksNPlayPage() {
               <h3 className="infoTextH">Reviews</h3>
               {review.map((review) => {
                 return (
-                  <ul>
-                    <li>
-                      {review.review_analysis}{' '}
-                      <p className="reviewedSize">
-                        {/* reviewed by {user.username} */}
-                      </p>
+                  <ul className="parksnplayreviewStyle">
+                    <li className="parksnplayreviewSize">
+                      {review.review_analysis}
                     </li>
+                    <p className="parksnplayreviewerSize">
+                      by {review.username}
+                    </p>
                   </ul>
                 );
               })}

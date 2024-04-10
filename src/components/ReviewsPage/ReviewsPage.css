@@ -24,3 +24,16 @@
   padding-left: 200px;
   padding-right: 200px;
 }
+
+.reviewSize {
+  font-size: x-large;
+}
+
+.reviewerSize {
+  font-size: small;
+  text-align: justify;
+}
+
+.reviewStyle {
+  list-style-position: inside;
+}

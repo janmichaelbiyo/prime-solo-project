@@ -13,9 +13,11 @@ function ReviewsPage() {
   const review = useSelector((store) => store.review);
   const parksnplay = useSelector((store) => store.parksnplay);
   const parksnplayid = useSelector((store) => store.parksnplayid);
+  const user = useSelector((store) => store.user);
   const [newReview, setNewReview] = useState({
     review_analysis: '',
     location_id: '',
+    user_id: '',
   });
 
   const handleParksNPlayPage = (event) => {
@@ -45,8 +47,9 @@ function ReviewsPage() {
           <Box className="listR">
             {review.map((review) => {
               return (
-                <ul>
-                  <li>{review.review_analysis}</li>
+                <ul className="reviewStyle">
+                  <li className="reviewSize">{review.review_analysis}</li>
+                  <p className="reviewerSize">by {review.username}</p>
                 </ul>
               );
             })}
@@ -65,6 +68,7 @@ function ReviewsPage() {
                     ...newReview,
                     review_analysis: event.target.value,
                     location_id: parksnplayid,
+                    user_id: user.id,
                   })
                 }
               ></textarea>

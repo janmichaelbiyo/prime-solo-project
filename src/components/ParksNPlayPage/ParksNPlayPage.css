@@ -79,7 +79,15 @@
   text-shadow: whitesmoke 1px 0 10px;
 }
 
-.reviewedSize {
+.parksnplayreviewerSize {
   font-size: small;
-  text-align: right;
+  text-align: justify;
+}
+
+.parksnplayreviewStyle {
+  list-style-position: inside;
+}
+
+.parksnplayreviewSize {
+  font-size: x-large;
 }
