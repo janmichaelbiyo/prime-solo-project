@@ -15,6 +15,7 @@ function ParksNPlayPage() {
   const inclusive = useSelector((store) => store.inclusive);
   const review = useSelector((store) => store.review);
   const pictures = useSelector((store) => store.pictures);
+  const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
   let history = useHistory();
 
@@ -44,7 +45,9 @@ function ParksNPlayPage() {
           </Grid>
           <Grid className="infoAddress" xs={4} item>
             <h2> Address </h2>
-            <p className="addressSize">{parksnplay.address}</p>
+            <p className="addressSize">
+              <a href={parksnplay.site}>{parksnplay.address}</a>
+            </p>
           </Grid>
           <Grid xs={8} item>
             <Box>
@@ -109,7 +112,12 @@ function ParksNPlayPage() {
               {review.map((review) => {
                 return (
                   <ul>
-                    <li>{review.review_analysis}</li>
+                    <li>
+                      {review.review_analysis}{' '}
+                      <p className="reviewedSize">
+                        {/* reviewed by {user.username} */}
+                      </p>
+                    </li>
                   </ul>
                 );
               })}

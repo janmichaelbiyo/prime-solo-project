@@ -11,5 +11,8 @@
 
 .container1 {
   background-color: gainsboro;
-  padding-top: 10px;
+  border-color: #9acd32;
+  border-style: outset;
+  border-width: 5px;
+  padding: 10px;
 }

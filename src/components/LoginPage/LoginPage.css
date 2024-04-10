@@ -3,6 +3,9 @@
   padding: 35vh;
   background-image: url('../../documentation/images/loginpage.png');
   background-size: cover;
+  border-color: #9acd32;
+  border-style: outset;
+  border-width: 5px;
 }
 
 .btnL {

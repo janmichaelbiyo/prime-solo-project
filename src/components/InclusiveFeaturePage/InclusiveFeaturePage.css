@@ -2,7 +2,7 @@
   background-color: gainsboro;
   display: flex;
   flex-flow: column wrap;
-  border-color: antiquewhite;
+  border-color: #9acd32;
   border-style: outset;
   border-width: 5px;
   padding: 6vh;
@@ -54,16 +54,5 @@ inclusiveList {
 
 .inclusviestatusSize {
   font-size: xx-large;
-  background-image: linear-gradient(
-    to left,
-    violet,
-    indigo,
-    blue,
-    green,
-    yellow,
-    orange,
-    red
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: blue;
 }

@@ -11,9 +11,9 @@ const {
 router.get('/:id', (req, res) => {
   console.log('this is the parks and playground i want', req.params.id);
   // GET route code here
-  const parksnplayQuery = `SELECT "location".title, "location".address, "location".info FROM "location"
+  const parksnplayQuery = `SELECT "location".title, "location".address, "location".info, "location".site FROM "location"
   WHERE "location".id =$1
-  GROUP BY "location".title, "location".address, "location".info;`;
+  GROUP BY "location".title, "location".address, "location".info, "location".site;`;
 
   pool
     .query(parksnplayQuery, [req.params.id])

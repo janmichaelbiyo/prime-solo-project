@@ -3,6 +3,9 @@
   padding: 35vh;
   background-image: url('../../documentation/images/loginpage.png');
   background-size: cover;
+  border-color: #9acd32;
+  border-style: outset;
+  border-width: 5px;
 }
 
 .btnR {
@@ -21,10 +24,10 @@
 .btn_asLinkR {
   padding: 0;
   border-width: 0;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid black;
   border-radius: 0;
   background: none;
-  background-color: gainsboro;
+  background-color: lavender;
   font: inherit;
   color: black;
 }

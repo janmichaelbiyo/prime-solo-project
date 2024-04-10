@@ -5,6 +5,10 @@ Grid
   background-color: gainsboro;
   background-image: url('../../documentation/images/mapPhoto.png');
   padding-bottom: 30px;
+  border-color: #9acd32;
+  border-style: outset;
+  border-width: 5px;
+  padding: 6vh;
 }
 
 .grid {
