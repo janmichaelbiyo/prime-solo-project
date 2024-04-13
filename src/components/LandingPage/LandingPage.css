@@ -3,7 +3,7 @@ Grid
 -------------------------------------------------------------------------------- */
 .container {
   background-color: gainsboro;
-  background-image: url('../../public/images/mapPhoto.png');
+  background-image: url('public/images/mapPhoto.png');
   padding-bottom: 30px;
   border-color: #9acd32;
   border-style: outset;
