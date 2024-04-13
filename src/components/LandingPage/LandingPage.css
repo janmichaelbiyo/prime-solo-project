@@ -22,7 +22,7 @@ Grid
   align-items: flex-start;
   background-color: gainsboro;
   padding: 10vh;
-  background-image: url('../../documentation/images/mapPhoto.png');
+  background-image: url('/public/images/mapPhoto.png');
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 30vh;
