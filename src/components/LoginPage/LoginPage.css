@@ -1,7 +1,7 @@
 #loginMain {
   background-color: gainsboro;
   padding: 35vh;
-  background-image: url('../../documentation/images/loginpage.png');
+  background-image: url('../../public/images/loginpage.png');
   background-size: cover;
   border-color: #9acd32;
   border-style: outset;
