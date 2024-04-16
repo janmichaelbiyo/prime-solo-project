@@ -95,7 +95,7 @@ function InclusiveFeaturePage() {
           <Grid xs={6} item textAlign={'center'}>
             <Box>
               <img
-                src="../../public/images/inclusive.png"
+                src="../../../public/images/inclusive.png"
                 alt="new inclusive sign"
                 className="pictureinclusive"
               />
