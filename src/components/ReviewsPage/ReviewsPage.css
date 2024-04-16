@@ -1,5 +1,5 @@
 .reviewMain {
-  background-image: url('../../documentation/images/review.png');
+  background-image: url('/public/images/review.png');
   background-size: cover;
   display: flex;
   flex-flow: column wrap;

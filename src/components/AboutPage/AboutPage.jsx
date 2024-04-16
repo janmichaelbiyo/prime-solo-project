@@ -24,7 +24,7 @@ function AboutPage() {
           width="30%"
           display="flex"
           alt="xavier in a swing"
-          src="../../documentation/images/theBird.png"
+          src="/public/images/theBird.png"
         ></Box>
 
         <Box
@@ -48,7 +48,7 @@ function AboutPage() {
           width={700}
           sx={{ alignContent: 'center', paddingTop: 20 }}
         >
-          <img src="../../documentation/images/TechUsed.png" alt="Tech Used" />
+          <img src="/public/images/TechUsed.png" alt="Tech Used" />
         </Box>
       </Stack>
     </div>
