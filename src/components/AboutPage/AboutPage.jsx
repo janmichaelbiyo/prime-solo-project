@@ -51,10 +51,10 @@ function AboutPage() {
           width={700}
           sx={{ alignContent: 'center', paddingTop: 20 }}
         >
-          <img src="./TechUsed.png" alt="Tech Used" />
+          <img src={tecImg} alt="Tech Used" />
         </Box>
       </Stack>
-      <img src="./TechUsed.png" />
+      <img src={'./TechUsed.png'} />
     </div>
   );
 }

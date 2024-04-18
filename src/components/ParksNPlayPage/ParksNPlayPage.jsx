@@ -9,6 +9,8 @@ import { styled } from '@mui/system';
 import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
 import MapIcon from '@mui/icons-material/Map';
 import RateReviewIcon from '@mui/icons-material/RateReview';
+import pnpPic from './parkbase.png';
+import pnpDunes from './parkdunes.png';
 
 function ParksNPlayPage() {
   const parksnplay = useSelector((store) => store.parksnplay);
