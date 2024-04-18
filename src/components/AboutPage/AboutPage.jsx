@@ -49,7 +49,7 @@ function AboutPage() {
           width={700}
           sx={{ alignContent: 'center', paddingTop: 20 }}
         >
-          <img src="../../../public/images/TechUsed.png" alt="Tech Used" />
+          <img src={'../../../public/images/TechUsed.png'} alt="Tech Used" />
         </Box>
       </Stack>
     </div>
