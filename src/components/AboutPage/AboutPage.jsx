@@ -6,6 +6,7 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import kidImg from '../../../public/images/theBird.png';
 import tecImg from '../../../public/images/TechUsed.png';
+import techImg from './TechUsed.png';
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -50,9 +51,10 @@ function AboutPage() {
           width={700}
           sx={{ alignContent: 'center', paddingTop: 20 }}
         >
-          <img src={tecImg} alt="Tech Used" />
+          <img src="TechUsed.png" alt="Tech Used" />
         </Box>
       </Stack>
+      <img src={techImg} />
     </div>
   );
 }
