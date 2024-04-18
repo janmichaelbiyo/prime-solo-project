@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import AttractionsOutlinedIcon from '@mui/icons-material/AttractionsOutlined';
+import inclusiveImg from '../../../public/images/inclusive.png';
 
 function InclusiveFeaturePage() {
   const history = useHistory();
@@ -95,7 +96,7 @@ function InclusiveFeaturePage() {
           <Grid xs={6} item textAlign={'center'}>
             <Box>
               <img
-                src="public/images/inclusive.png"
+                src={inclusiveImg}
                 alt="new inclusive sign"
                 className="pictureinclusive"
               />
