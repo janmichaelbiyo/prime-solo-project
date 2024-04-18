@@ -54,7 +54,7 @@ function AboutPage() {
           <img src={tecImg} alt="Tech Used" />
         </Box>
       </Stack>
-      <img src={'./TechUsed.png'} />
+      <img src="./TechUsed.png" />
     </div>
   );
 }
