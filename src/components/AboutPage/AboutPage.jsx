@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
-
+import kidImg from '../../../public/images/theBird.png';
 // This is one of our simplest components
 // It doesn't have local state,
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -24,7 +24,7 @@ function AboutPage() {
           width="30%"
           display="flex"
           alt="xavier in a swing"
-          src="/public/images/theBird.png"
+          src={kidImg}
         ></Box>
 
         <Box
