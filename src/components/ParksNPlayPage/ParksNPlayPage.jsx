@@ -9,8 +9,7 @@ import { styled } from '@mui/system';
 import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
 import MapIcon from '@mui/icons-material/Map';
 import RateReviewIcon from '@mui/icons-material/RateReview';
-import pnpPic from './parkbase.png';
-import pnpDunes from '../../../public/images/parkdunes.png';
+import pnpPic from '../../../public/images/newpark.png';
 
 function ParksNPlayPage() {
   const parksnplay = useSelector((store) => store.parksnplay);
@@ -53,15 +52,17 @@ function ParksNPlayPage() {
           </Grid>
           <Grid xs={8} item>
             <Box>
-              <img
-                src={pictures.pic}
-                alt="park or playground"
-                className="picture"
-              />
+              <img src={pnpPic} alt="park or playground" className="picture" />
             </Box>
             <Box textAlign={'right'}>
-              Photo by <a href={pictures.source}>{pictures.artist}</a> on{' '}
-              <a href={pictures.attribute}>Unsplash</a>
+              Photo by{' '}
+              <a href="https://unsplash.com/@juliablumberg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+                Julia Blumberg
+              </a>{' '}
+              on{' '}
+              <a href="https://unsplash.com/photos/a-broken-metal-object-on-a-concrete-surface-fxrgKbROwwk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+                Unsplash
+              </a>
             </Box>
           </Grid>
           <Grid item xs={4}>
