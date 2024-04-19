@@ -8,13 +8,15 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+you will need MUI
+  which is this 
 
-```
-Give examples
-```
+you will need react leaflet 
+  which is this 
 
-### Installing
+react 
+
+
 
 A step by step series of examples that tell you how to get a development env running
 
@@ -46,6 +48,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+Thank you to all my instructors and anyone in Prime in office hours that helped me explore and make me into a better programer.  I am slowly understanding and learning the field and it due to their time and patience that i have learned so much.  
